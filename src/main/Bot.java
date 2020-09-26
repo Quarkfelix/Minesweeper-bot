@@ -24,6 +24,7 @@ public class Bot {
 	private Color two = new Color(0, 128, 0);
 	private Color three = new Color(255, 0, 0);
 	private Color four = new Color(0, 0, 128);
+	private Color mine = new Color(189, 191, 191);
 
 	public Bot() {
 		try {
@@ -55,6 +56,10 @@ public class Bot {
 						}
 					}
 				} 
+				if (pixelcolor.getRed() == three.getRed()) {
+					dots.add(new Dot(x, y));
+					field[(x-12)/24][(y-12)/24] = 3;
+				}
 				if (pixelcolor.getGreen() == four.getGreen()) {
 					if (pixelcolor.getBlue() == four.getBlue()) {
 						if (pixelcolor.getRed() == four.getRed()) {
@@ -63,9 +68,13 @@ public class Bot {
 						}
 					}
 				}
-				if (pixelcolor.getRed() == three.getRed()) {
-					dots.add(new Dot(x, y));
-					field[(x-12)/24][(y-12)/24] = 3;
+				if (pixelcolor.getGreen() == mine.getGreen()) {
+					if (pixelcolor.getBlue() == mine.getBlue()) {
+						if (pixelcolor.getRed() == mine.getRed()) {
+							dots.add(new Dot(x, y, "mine"));
+							field[(x-12)/24][(y-12)/24] = 8;
+						}
+					}
 				}
 			}
 		}

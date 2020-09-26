@@ -21,7 +21,7 @@ public class GUI extends JFrame {
 		jf = new JFrame();
 		draw = new Draw();
 		jf.setSize(400, 430);
-		jf.setLocationRelativeTo(null);
+		jf.setLocation(-500,50);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.add(draw);
 		jf.setVisible(true);
